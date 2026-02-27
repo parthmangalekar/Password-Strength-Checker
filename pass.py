@@ -8,5 +8,8 @@ upper_error = re.search(r"[A-Z]", password is None)
 lower_error = re.search(r"[a-z]", password is None)
 special_error = re.search(r"[!#\$%&'\(\)\*\+,\-\./:;<=>\?@\[\\\]\^_`\{\|\}~]", password) is None
 
-req = [lng_error, digit_error, upper_error, lower_error, special_error]
+is_strong= all[lng_error, digit_error, upper_error, lower_error, special_error]
+if is_strong:
+    print('Your password meets all the security standards')
+
 print(password)
