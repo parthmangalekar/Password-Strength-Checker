@@ -12,4 +12,12 @@ is_strong= all[lng_error, digit_error, upper_error, lower_error, special_error]
 if is_strong:
     print('Your password meets all the security standards')
 
+else:
+    print('Your password does not meet the following security requirements:')
+    if not lng_error:
+        print('Must have atleast 8 characters.')
+    if not digit_error:
+        print('Must have atleast one digit.')
+    if not upper_error:
+
 print(password)
