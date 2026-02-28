@@ -1,45 +1,43 @@
-# Password Strength Checker
+# Password Strength Checker & Generator
 
-A simple, effective Python-based tool to validate the strength of user passwords. This script checks against standard security requirements using regular expressions to ensure passwords are robust and secure.
+A simple, effective Python-based tool to validate the strength of user passwords or generate new ones. This script uses regular expressions and cryptographically secure randomizing to ensure your credentials are robust.
 
 ## Features
 
-The script evaluates the following criteria:
+The script now offers two primary modes:
 
-* **Minimum Length:** At least 8 characters.
-* **Digits:** Contains at least one numerical digit ($0-9$).
-* **Uppercase:** Contains at least one uppercase letter ($A-Z$).
-* **Lowercase:** Contains at least one lowercase letter ($a-z$).
-* **Special Characters:** Contains at least one special symbol (e.g., `!`, `@`, `#`, `$`, `%`).
+* **Password Validator:** Checks against standard security requirements (Length, Digits, Uppercase, Lowercase).
+* **Random Password Generator:** Automatically creates a 16-character strong password using `secrets`.
+* **Expanded Character Support:** Now includes all standard symbols via `string.punctuation`.
 
 ## How It Works
 
-The application uses the Python `re` module to perform pattern matching. If a password fails any of the security checks, the script provides specific feedback on what is missing, rather than just a generic "Invalid" message.
+1. **Validation:** The application uses the Python `re` module to perform pattern matching. If a password fails, it provides specific feedback on what is missing.
+2. **Generation:** Using the `secrets` module, the script pulls random characters from a pool of letters, digits, and symbols to form a non-predictable string.
 
 ## Getting Started
 
 ### Prerequisites
 
-* **Python 3.x** installed on your system.
+* **Python 3.x** installed on your system (Works on Fedora/Linux).
 
 ### Running the Script
 
-1. Clone this repository or download the `pass.py` file.
-2. Open your terminal.
-3. Navigate to the project directory and run:
+1. Open your terminal in the project directory.
+2. Run the command:
 ```bash
 python pass.py
 
 ```
 
 
-4. Enter the password you wish to test when prompted.
+3. Enter **1** to check a password or **2** to generate a random one.
 
 ## Example Output
 
 ```text
-Password Strength Checker
-Enter your password here: P@ssw0rd1
-Your password meets all the security standards
+Choose: (1) Check Password (2) Generate Random: 2
+Generated Password: k#9Fv2_zL!pQ7m*X
 
 ```
+
