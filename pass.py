@@ -8,18 +8,20 @@ mode = input("Choose: (1) Check Password (2) Generate Random: ")
 
 if mode == '1':
     password = input('Enter your password here: ')
-lng_error =len(password) < 8
-digit_error   = re.search(r"\d", password) is None
-upper_error = re.search(r"[A-Z]", password) is None
-lower_error = re.search(r"[a-z]", password) is None
-special_error = re.search(r"[!#\$%&'\(\)\*\+,\-\./:;<=>\?@\[\\\]\^_`\{\|\}~]", password) is None
+    lng_error = len(password) < 8
+    digit_error   = re.search(r"\d", password) is None
+    upper_error = re.search(r"[A-Z]", password) is None
+    lower_error = re.search(r"[a-z]", password) is None
+    special_error = re.search(r"[!#\$%&'\(\)\*\+,\-\./:;<=>\?@\[\\\]\^_`\{\|\}~]", password) is None
 
-is_strong = not any([lng_error, digit_error, upper_error, lower_error, special_error])
-if is_strong:
-    print('Your password meets all the security standards')
+    is_strong = not any([lng_error, digit_error, upper_error, lower_error, special_error])
+    if is_strong:
+        print('Your password meets all the security standards')
+    
+    
 
-else:
-    print('Your password does not meet the following security requirements:')
+    else:
+          print('Your password does not meet the following security requirements:')
     if lng_error:
         print('Must have atleast 8 characters.')
     if digit_error:
@@ -30,8 +32,10 @@ else:
         print('Must have atleast one lowercase letter.')
     if special_error:
         print('Must have atleast one special character.')
+  
 
 if mode == '2':
     length = 16
     alphabet = string.ascii_letters + string.digits
-    
+    random_pass = ''.join(secrets.choice(alphabet) for _ in range(length))
+    print (random_pass)
