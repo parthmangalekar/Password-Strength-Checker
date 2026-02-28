@@ -1,4 +1,7 @@
 import re
+import secrets
+import string
+from getpass import getpass
 
 print('Password Strength Checker')
 password = input('Enter your password here: ')
