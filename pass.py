@@ -30,3 +30,8 @@ else:
         print('Must have atleast one lowercase letter.')
     if special_error:
         print('Must have atleast one special character.')
+
+if mode == '2':
+    length = 16
+    alphabet = string.ascii_letters + string.digits
+    
