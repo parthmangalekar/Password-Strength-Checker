@@ -30,5 +30,3 @@ else:
         print('Must have atleast one lowercase letter.')
     if special_error:
         print('Must have atleast one special character.')
-
-print(password)
