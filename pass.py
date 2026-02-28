@@ -4,7 +4,10 @@ import string
 from getpass import getpass
 
 print('Password Strength Checker')
-password = input('Enter your password here: ')
+mode = input("Choose: (1) Check Password (2) Generate Random: ")
+
+if mode == '1':
+    password = input('Enter your password here: ')
 lng_error =len(password) < 8
 digit_error   = re.search(r"\d", password) is None
 upper_error = re.search(r"[A-Z]", password) is None
