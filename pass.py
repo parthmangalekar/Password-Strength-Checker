@@ -36,6 +36,6 @@ if mode == '1':
 
 if mode == '2':
     length = 16
-    alphabet = string.ascii_letters + string.digits
+    alphabet = string.ascii_letters + string.digits + string.punctuation
     random_pass = ''.join(secrets.choice(alphabet) for _ in range(length))
     print (random_pass)
