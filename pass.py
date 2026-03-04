@@ -3,6 +3,13 @@ import secrets
 import string
 from getpass import getpass
 
+try:
+    with open ('common_pass.txt', 'r') as f:
+        common_passwords = {line.strip() for line in f}
+
+except FileNotFoundError:
+    print('')
+
 print('Password Strength Checker')
 mode = input("Choose: (1) Check password (2) Generate a random password: ")
 
