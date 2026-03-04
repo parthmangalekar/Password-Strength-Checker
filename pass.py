@@ -4,7 +4,7 @@ import string
 from getpass import getpass
 
 print('Password Strength Checker')
-mode = input("Choose: (1) Check Password (2) Generate Random: ")
+mode = input("Choose: (1) Check password (2) Generate a random password: ")
 
 if mode == '1':
     password = input('Enter your password here: ')
@@ -38,4 +38,4 @@ if mode == '2':
     length = 16
     alphabet = string.ascii_letters + string.digits + string.punctuation
     random_pass = ''.join(secrets.choice(alphabet) for _ in range(length))
-    print (random_pass)
+    print ('Your randomly generated password is:', random_pass)
