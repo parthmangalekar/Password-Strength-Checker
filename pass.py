@@ -28,10 +28,11 @@ if mode == '1':
         try:
             with open('common_pass.txt', 'r') as f:
                 common_passwords = [line.strip() for line in f]
-                if pass in common_passwords:
+                if password in common_passwords:
                     is_common = True
         except FileNotFoundError:
             print('Warning: common_pass.txt not found. Skipping blacklist check')
+
     
 
     else:
