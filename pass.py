@@ -24,7 +24,14 @@ if mode == '1':
     is_strong = not any([lng_error, digit_error, upper_error, lower_error, special_error])
     if is_strong:
         print('Your password meets all the security standards')
-    
+        is_common = False
+        try:
+            with open('common_pass.txt', 'r') as f:
+                common_passwords = [line.strip() for line in f]
+                if pass in common_passwords:
+                    is_common = True
+        except FileNotFoundError:
+            print('Warning: common_pass.txt not found. Skipping blacklist check')
     
 
     else:
