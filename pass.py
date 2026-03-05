@@ -32,6 +32,9 @@ if mode == '1':
                     is_common = True
         except FileNotFoundError:
             print('Warning: common_pass.txt not found. Skipping blacklist check')
+            if is_common:
+                print('Error: Your password meets standards but is too common')
+                
 
     
 
