@@ -8,7 +8,14 @@ try:
         common_passwords = {line.strip() for line in f}
 
 except FileNotFoundError:
-    print('')
+    print('common_pass.py not found please download it')
+
+try:
+    with open ('breached_pass.txt', 'r') as f:
+        common_passwords = {line.strip() for line in f}
+
+except FileNotFoundError:
+    print('breached_pass.txt not found please download it')
 
 print('Password Strength Checker')
 mode = input("Choose: (1) Check password (2) Generate a random password: ")
@@ -35,7 +42,8 @@ if mode == '1':
         if is_common:
             print("Error: Your password meets standards but is too common")
         else:
-            print('Your password meets all the security standards')   
+            print('test')
+               
                  
     
     else:
