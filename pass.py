@@ -43,6 +43,17 @@ if mode == '1':
             print("Error: Your password meets standards but is too common")
         else:
             print('test')
+
+    if is_strong:
+        is_breached= False
+        try:
+            with open('breached_pass.txt', 'r') as f:
+                breached_passwords = [line.strip() for line in f]
+                if password in breached_passwords:
+                    is_breached = True
+        except FileNotFoundError:
+            print('Warning: breached_pass.txt not fond, Skipping blacklist check')
+
                
                  
     
