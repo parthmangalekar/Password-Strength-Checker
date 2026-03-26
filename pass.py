@@ -2,6 +2,7 @@ import re
 import secrets
 import string
 from getpass import getpass
+import sys
 
 try:
     with open ('common_pass.txt', 'r') as f:
@@ -39,10 +40,11 @@ if mode == '1':
                     is_common = True
         except FileNotFoundError:
             print('Warning: common_pass.txt not found. Skipping blacklist check')
+            sys.exit(1)
         if is_common:
             print("Error: Your password meets standards but is too common")
         else:
-            print('test')
+            print("Your password isn't common and can be used")
 
     if is_strong:
         is_breached= False
@@ -52,13 +54,15 @@ if mode == '1':
                 if password in breached_passwords:
                     is_breached = True
         except FileNotFoundError:
-            print('Warning: breached_pass.txt not fond, Skipping blacklist check')
+            print('Warning: breached_pass.txt not found, Skipping blacklist check')
+            sys.exit(1)
+        
         if is_breached:
-                print('Error: your password has been breached, Please consider changing ASAP')
+                print('Error: your password has been breached, Please consider changing it ASAP')
 
-               
-                 
-    
+        else:
+            print('Your password is not been breached and is safe to use')
+
     else:
           print('Your password does not meet the following security requirements:')
     if lng_error:
