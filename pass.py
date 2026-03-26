@@ -53,6 +53,8 @@ if mode == '1':
                     is_breached = True
         except FileNotFoundError:
             print('Warning: breached_pass.txt not fond, Skipping blacklist check')
+        if is_breached:
+                print('Error: your password has been breached, Please consider changing ASAP')
 
                
                  
