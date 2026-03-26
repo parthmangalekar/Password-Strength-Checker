@@ -5,18 +5,18 @@ from getpass import getpass
 import sys
 
 try:
-    with open ('common_pass.txt', 'r') as f:
+    with open('common_pass.txt', 'r') as f:
         common_passwords = {line.strip() for line in f}
-
 except FileNotFoundError:
-    print('common_pass.py not found please download it')
+    print("Error: common_pass.txt is required")
+    sys.exit(1)
 
 try:
-    with open ('breached_pass.txt', 'r') as f:
-        common_passwords = {line.strip() for line in f}
-
+    with open('breached_pass.txt', 'r') as f:
+        breached_passwords = {line.strip() for line in f}
 except FileNotFoundError:
-    print('breached_pass.txt not found please download it')
+    print("Error: breached_pass.txt is required")
+    sys.exit(1)
 
 print('Password Strength Checker')
 mode = input("Choose: (1) Check password (2) Generate a random password: ")
@@ -82,3 +82,4 @@ if mode == '2':
     alphabet = string.ascii_letters + string.digits + string.punctuation
     random_pass = ''.join(secrets.choice(alphabet) for _ in range(length))
     print ('Your randomly generated password is:', random_pass)
+    
