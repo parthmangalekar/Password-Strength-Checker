@@ -78,7 +78,7 @@ if mode == '1':
   
 
 if mode == '2':
-    length = 16
+    length= int(input('Please specify the desired length of your password: '))
     alphabet = string.ascii_letters + string.digits + string.punctuation
     random_pass = ''.join(secrets.choice(alphabet) for _ in range(length))
     print ('Your randomly generated password is:', random_pass)
