@@ -3,6 +3,17 @@ import secrets
 import string
 from getpass import getpass
 import sys
+import requests
+import hashlib
+
+def check_password_breach(password):
+    sha1_hash = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
+    prefix, suffix = sha1_hash[:5], sha1_hash[5:]
+    
+    url = f"https://api.pwnedpasswords.com/range/{prefix}"
+    response = requests.get(url)
+    
+   
 
 try:
     with open('common_pass.txt', 'r') as f:
@@ -46,22 +57,7 @@ if mode == '1':
         else:
             print("Your password isn't common and can be used")
 
-    if is_strong:
-        is_breached= False
-        try:
-            with open('breached_pass.txt', 'r') as f:
-                breached_passwords = [line.strip() for line in f]
-                if password in breached_passwords:
-                    is_breached = True
-        except FileNotFoundError:
-            print('Warning: breached_pass.txt not found, Skipping blacklist check')
-            sys.exit(1)
-        
-        if is_breached:
-                print('Error: your password has been breached, Please consider changing it ASAP')
 
-        else:
-            print('Your password is not been breached and is safe to use')
 
     else:
           print('Your password does not meet the following security requirements:')
@@ -78,7 +74,7 @@ if mode == '1':
   
 
 if mode == '2':
-    length= int(input('Please specify the desired length of your password: '))
+    length= int(input('Please specify your desired password length: '))
     alphabet = string.ascii_letters + string.digits + string.punctuation
     random_pass = ''.join(secrets.choice(alphabet) for _ in range(length))
     print ('Your randomly generated password is:', random_pass)
