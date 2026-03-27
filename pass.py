@@ -67,10 +67,19 @@ if mode == '1':
         else:
             print("Your password isn't common and can be used")
 
+        if is_strong:
+         count = check_password_breach(password)
+
+        if count:
+            print(f"⚠️ Your password was found {count} times in data breaches. Change it ASAP!")
+        else:
+             print("✅ Your password was NOT found in known breaches.")
+   
+    
 
 
     else:
-          print('Your password does not meet the following security requirements:')
+        print('Your password does not meet the following security requirements:')
     if lng_error:
         print('Must have atleast 8 characters.')
     if digit_error:
