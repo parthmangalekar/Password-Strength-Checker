@@ -32,12 +32,6 @@ except FileNotFoundError:
     print("Error: common_pass.txt is required")
     sys.exit(1)
 
-try:
-    with open('breached_pass.txt', 'r') as f:
-        breached_passwords = {line.strip() for line in f}
-except FileNotFoundError:
-    print("Error: breached_pass.txt is required")
-    sys.exit(1)
 
 print('Password Strength Checker')
 mode = input("Choose: (1) Check password (2) Generate a random password: ")
