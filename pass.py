@@ -13,7 +13,17 @@ def check_password_breach(password):
     url = f"https://api.pwnedpasswords.com/range/{prefix}"
     response = requests.get(url)
     
-   
+    if response.status_code != 200:
+        print("Warning: Could not check breach database.")
+        return 0
+
+    hashes = (line.split(':') for line in response.text.splitlines())
+    
+    for h, count in hashes:
+        if h == suffix:
+            return int(count)
+            
+    return 0
 
 try:
     with open('common_pass.txt', 'r') as f:
