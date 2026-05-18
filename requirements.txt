@@ -15,7 +15,6 @@ certifi==2025.7.9
 cffi==2.0.0
 charset-normalizer==3.4.3
 click==8.1.7
-cockpit @ file:///builddir/build/BUILD/cockpit-358-build/cockpit-358/tmp/wheel/cockpit-358-py3-none-any.whl#sha256=f71feeca36dc7d5a2e40b1b62dd015b14ab911c738e799fa2eade9c537009e90
 colorlog==6.10.1
 crcmod==1.7
 crypt_r==3.13.1
@@ -91,7 +90,6 @@ pyenchant==3.2.2
 Pygments==2.19.2
 PyGObject==3.54.5
 pyinotify==0.9.6
-pykickstart @ file:///builddir/build/BUILD/pykickstart-3.66-build/pykickstart-3.66
 pyotp==2.9.0
 pyparted==3.13.0
 pypresence==4.3.0
@@ -122,8 +120,6 @@ rpm==6.0.1
 rpmautospec==0.8.4
 rpmautospec-core==0.1.5
 runs==1.2.2
-selinux @ file:///builddir/build/BUILD/libselinux-3.9-build/libselinux-3.9/src
-sepolicy @ file:///builddir/build/BUILD/policycoreutils-3.9-build/selinux-3.9/python/sepolicy
 setools==4.6.0
 setuptools==78.1.1
 shellingham==1.5.4
@@ -149,3 +145,4 @@ xmod==1.8.1
 yarl==1.22.0
 yt-dlp==2026.3.17
 zeroconf==0.148.0
+requests==2.33.0
